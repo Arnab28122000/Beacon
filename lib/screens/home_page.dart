@@ -1,5 +1,7 @@
 import 'dart:math';
-
+import 'package:beacon/screens/foodHomePage.dart';
+import 'package:beacon/screens/salonHome.dart';
+import 'package:beacon/widgets/BottomNavBarWidget.dart';
 import 'package:flutter/material.dart';
 import '../model/trending_model.dart';
 import '../model/data.dart';
@@ -19,10 +21,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<TrendingModel> trendingDataList;
   @override
-  void initState() { 
-    trendingDataList = trendingMapList.map((x)=> TrendingModel.fromJson(x)).toList();
+  void initState() {
+    trendingDataList =
+        trendingMapList.map((x) => TrendingModel.fromJson(x)).toList();
     super.initState();
   }
+
   Widget _appBar() {
     return AppBar(
       elevation: 0,
@@ -46,7 +50,9 @@ class _HomePageState extends State<HomePage> {
             decoration: BoxDecoration(
               color: Theme.of(context).backgroundColor,
             ),
-            child: Image.asset("assets/images/user.jpg", fit: BoxFit.fill),
+            child: CircleAvatar(
+              child: Image.asset("assets/images/user.jpg", fit: BoxFit.fill),
+              radius: 22,),
           ),
         ).p(8),
       ],
@@ -118,14 +124,12 @@ class _HomePageState extends State<HomePage> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: <Widget>[
-              _categoryCard("Restaurants", "3M +",
-                 "assets/images/restaurant.jpg" ),
-              _categoryCard("Medical Stores", "1.5M +",
-                  "assets/images/medicine.jpg"),
-              _categoryCard("Salons & Spas", "1M +",
-                  "assets/images/spa.jpg"),
-              _categoryCard("Grocery", "5M +",
-                 "assets/images/grocery.jpg")
+              _categoryCard(
+                  "Restaurants", "3M +", "assets/images/restaurant.jpg",FoodHomePage.routeName),
+              _categoryCard(
+                  "Medical Stores", "1.5M +", "assets/images/medicine.jpg",SalonHomePage.routeName),
+              _categoryCard("Salons & Spas", "1M +", "assets/images/spa.jpg",FoodHomePage.routeName),
+              _categoryCard("Grocery", "5M +", "assets/images/grocery.jpg",SalonHomePage.routeName)
             ],
           ),
         ),
@@ -133,63 +137,66 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _categoryCard(String title, String subtitle, String img) {
-     TextStyle titleStyle = TextStyles.title.bold.white;
-     TextStyle subtitleStyle = TextStyles.body.bold.white;
-     if(AppTheme.fullWidth(context) < 392){
-       titleStyle = TextStyles.body.bold.white;
-       subtitleStyle = TextStyles.bodySm.bold.white;
-     }
+  Widget _categoryCard(String title, String subtitle, String img, String routename) {
+    TextStyle titleStyle = TextStyles.title.bold.white;
+    TextStyle subtitleStyle = TextStyles.body.bold.white;
+    if (AppTheme.fullWidth(context) < 392) {
+      titleStyle = TextStyles.body.bold.white;
+      subtitleStyle = TextStyles.bodySm.bold.white;
+    }
     return AspectRatio(
       aspectRatio: 6 / 8,
-      child: Container(
-        height: 280,
-        width: AppTheme.fullWidth(context) * .3,
-        margin: EdgeInsets.only(left: 10, right: 10, bottom: 20, top: 10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
+      child: InkWell(
+        onTap: () {
+          print('routing to food App');
+          Navigator.pushNamed(context, routename);
+        },
+        child: Container(
+          height: 280,
+          width: AppTheme.fullWidth(context) * .3,
+          margin: EdgeInsets.only(left: 10, right: 10, bottom: 20, top: 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
             image: DecorationImage(
-            image: AssetImage(img),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          child: Container(
-            child: Stack(
-              children: <Widget>[
-                // Positioned(
-                //   top: -20,
-                //   left: -20,
-                //   child: CircleAvatar(
-                //     backgroundColor: lightColor,
-                //     radius: 60,
-                //   ),
-                // ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Flexible(
-                      child: Text(
-                        title,
-                        style: titleStyle
-                      ).hP8,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Flexible(
-                      child: Text(
-                        subtitle,
-                        style: subtitleStyle,
-                      ).hP8,
-                    ),
-                  ],
-                ).p16
-              ],
+              image: AssetImage(img),
+              fit: BoxFit.cover,
             ),
           ),
-        ).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(20))),
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            child: Container(
+              child: Stack(
+                children: <Widget>[
+                  // Positioned(
+                  //   top: -20,
+                  //   left: -20,
+                  //   child: CircleAvatar(
+                  //     backgroundColor: lightColor,
+                  //     radius: 60,
+                  //   ),
+                  // ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Flexible(
+                        child: Text(title, style: titleStyle).hP8,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Flexible(
+                        child: Text(
+                          subtitle,
+                          style: subtitleStyle,
+                        ).hP8,
+                      ),
+                    ],
+                  ).p16
+                ],
+              ),
+            ),
+          ).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(20))),
+        ),
       ),
     );
   }
@@ -211,18 +218,19 @@ class _HomePageState extends State<HomePage> {
               // .p(12).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(20))),
             ],
           ).hP16,
-          gettrendingWidgetList(), 
+          gettrendingWidgetList(),
         ],
       ),
     );
   }
-  Widget gettrendingWidgetList(){
-     return Column(
-       children: trendingMapList.map((x){
-            return  _trendingTile(TrendingModel.fromJson(x));
-          }).toList()
-     );
+
+  Widget gettrendingWidgetList() {
+    return Column(
+        children: trendingMapList.map((x) {
+      return _trendingTile(TrendingModel.fromJson(x));
+    }).toList());
   }
+
   Widget _trendingTile(TrendingModel model) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -265,7 +273,7 @@ class _HomePageState extends State<HomePage> {
           ),
           title: Text(model.name, style: TextStyles.title.bold),
           subtitle: Text(
-           model.type,
+            model.type,
             style: TextStyles.bodySm.subTitleColor.bold,
           ),
           trailing: Icon(
@@ -275,7 +283,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ).ripple(() {
-        Navigator.pushNamed(context, "/DetailPage", arguments: model);
+        // print(model.toJson()['image']);
+        // print(model.image);
+        Navigator.pushNamed(context, "/detail_page", arguments: model);
       }, borderRadius: BorderRadius.all(Radius.circular(20))),
     );
   }
@@ -318,6 +328,7 @@ class _HomePageState extends State<HomePage> {
           _trendingsList()
         ],
       ),
+      bottomNavigationBar: BottomNavBarWidget(),
     );
   }
 }

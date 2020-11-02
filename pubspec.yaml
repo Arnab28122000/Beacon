@@ -31,6 +31,8 @@ dependencies:
   intro_slider: ^2.3.3
   flutter_signin_button: ^1.1.0
   provider: ^4.3.2+2
+  carousel_pro: ^1.0.0
+  google_fonts: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +70,57 @@ flutter:
     - assets/images/medicine.jpg
     - assets/images/spa.jpg
     - assets/images/grocery.jpg
+    - assets/images/menus/ic_search_menu.png
+    - assets/images/menus/ic_account.png
+    - assets/images/menus/ic_cart.png
+    - assets/images/menus/ic_home.png
+    - assets/images/menus/ic_delete.png
+    - assets/images/menus/ic_near_by.png
+    - assets/images/menus/ic_credit_card.png
+    - assets/images/menus/ic_app_icon.png
+    - assets/images/menus/ic_food_express.png
+    - assets/images/menus/ic_app_icon_black.png
+    - assets/images/topmenu/ic_burger.png
+    - assets/images/topmenu/ic_cake.png
+    - assets/images/topmenu/ic_ice_cream.png
+    - assets/images/topmenu/ic_pasta.png
+    - assets/images/topmenu/ic_pizza.png
+    - assets/images/topmenu/ic_sushi.png
+    - assets/images/topmenu/ic_soft_drink.png
+    - assets/images/popular_foods/ic_popular_food_1.png
+    - assets/images/popular_foods/ic_popular_food_2.png
+    - assets/images/popular_foods/ic_popular_food_3.png
+    - assets/images/popular_foods/ic_popular_food_4.png
+    - assets/images/popular_foods/ic_popular_food_5.png
+    - assets/images/popular_foods/ic_popular_food_6.png
+    - assets/images/bestfood/ic_best_food_1.jpeg
+    - assets/images/bestfood/ic_best_food_2.jpeg
+    - assets/images/bestfood/ic_best_food_3.jpeg
+    - assets/images/bestfood/ic_best_food_4.jpeg
+    - assets/images/bestfood/ic_best_food_5.jpeg
+    - assets/images/bestfood/ic_best_food_6.jpeg
+    - assets/images/bestfood/ic_best_food_7.jpeg
+    - assets/images/bestfood/ic_best_food_8.jpeg
+    - assets/images/bestfood/ic_best_food_9.jpeg
+    - assets/images/bestfood/ic_best_food_10.jpeg
+    - assets/images/abuja.png
+    - assets/images/blow.png
+    - assets/images/braid.png
+    - assets/images/braid1.jpg
+    - assets/images/braid2.jpg
+    - assets/images/braid3.jpg
+    - assets/images/braid4.jpg
+    - assets/images/haircut.png
+    - assets/images/main.png
+    - assets/images/more.png
+    - assets/images/nail.png
+    - assets/images/profile.jpg
+    - assets/images/relaxer.png
+    - assets/images/shampoo.png
+    - assets/images/menshair.jpg
+    - assets/images/Loreal_Salon.jpg
+    - assets/images/jawed_habib.jpg
+    - assets/images/lakmesalon.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

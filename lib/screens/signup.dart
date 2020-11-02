@@ -65,9 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Container(
               height: _large? _height/8 : (_medium? _height/7 : _height/6.5),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.orange[200], Colors.pinkAccent],
-                ),
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -79,9 +77,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Container(
               height: _large? _height/12 : (_medium? _height/11 : _height/10),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.orange[200], Colors.pinkAccent],
-                ),
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -105,7 +101,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 print('Adding photo');
               },
 
-              child: Icon(Icons.add_a_photo, size: _large? 40: (_medium? 33: 31),color: Colors.orange[200],)),
+              child: Icon(Icons.add_a_photo, size: _large? 40: (_medium? 33: 31),color: Theme.of(context).primaryColor,)),
         ),
 //        Positioned(
 //          top: _height/8,
@@ -201,7 +197,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Checkbox(
-              activeColor: Colors.orange[200],
+              activeColor: Theme.of(context).primaryColor,
               value: checkBoxValue,
               onChanged: (bool newValue) {
                 setState(() {
@@ -233,9 +229,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         width:_large? _width/4 : (_medium? _width/3.75: _width/3.5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(20.0)),
-          gradient: LinearGradient(
-            colors: <Color>[Colors.orange[200], Colors.pinkAccent],
-          ),
+          color: Theme.of(context).primaryColor,
         ),
         padding: const EdgeInsets.all(12.0),
         child: Text('SIGN UP', style: TextStyle(fontSize: _large? 14: (_medium? 12: 10)),),
@@ -308,7 +302,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Text(
               "Sign in",
               style: TextStyle(
-                  fontWeight: FontWeight.w800, color: Colors.orange[200], fontSize: 19),
+                  fontWeight: FontWeight.w800, color: Theme.of(context).primaryColor, fontSize: 19),
             ),
           )
         ],

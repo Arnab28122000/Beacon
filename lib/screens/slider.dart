@@ -67,7 +67,7 @@ class _IntroState extends State<Intro> {
   Widget renderNextBtn() {
     return Icon(
       Icons.navigate_next,
-      color: Color(0xffffcc5c),
+      color: Theme.of(context).primaryColor,
       size: 35.0,
       
     );
@@ -76,14 +76,14 @@ class _IntroState extends State<Intro> {
   Widget renderDoneBtn() {
     return Icon(
       Icons.done,
-      color: Color(0xffffcc5c),
+      color: Theme.of(context).primaryColor,
     );
   }
 
   Widget renderSkipBtn() {
     return Icon(
       Icons.skip_next,
-      color: Color(0xffffcc5c),
+      color: Theme.of(context).primaryColor,
     );
   }
 
@@ -139,7 +139,7 @@ class _IntroState extends State<Intro> {
                       child: RaisedButton(
                         textColor: Colors.white,
                         color: Colors.white,
-                        child: Text('Sign Up',style: TextStyle(fontSize: 23, color: Colors.red[200]),),
+                        child: Text('Sign Up',style: TextStyle(fontSize: 23, color: Theme.of(context).primaryColor),),
                         onPressed: () {
                           print(nameController.text);
                           print(passwordController.text);
@@ -202,8 +202,8 @@ class _IntroState extends State<Intro> {
 
       // Skip button
       renderSkipBtn: this.renderSkipBtn(),
-      colorSkipBtn: Colors.amber[100].withOpacity(.2),
-      highlightColorSkipBtn: Color(0xffffcc5c),
+      colorSkipBtn: Colors.white,
+      highlightColorSkipBtn:Theme.of(context).primaryColor,
 
       // Next button
       renderNextBtn: this.renderNextBtn(),
@@ -211,17 +211,17 @@ class _IntroState extends State<Intro> {
       // Done button
       renderDoneBtn: this.renderDoneBtn(),
       onDonePress: this.onDonePress,
-      colorDoneBtn: Color(0x33ffcc5c),
-      highlightColorDoneBtn: Color(0xffffcc5c),
+      colorDoneBtn: Colors.white,
+      highlightColorDoneBtn:Theme.of(context).primaryColor,
 
       // Dot indicator
-      colorDot: Color(0xffffcc5c),
+      colorDot: Colors.white,
       sizeDot: 13.0,
       //typeDotAnimation: dotSliderAnimation.SIZE_TRANSITION,
 
       // Tabs
       listCustomTabs: this.renderListCustomTabs(),
-      backgroundColorAllSlides: Colors.red[200],
+      backgroundColorAllSlides: Theme.of(context).primaryColor,
       refFuncGoToTab: (refFunc) {
         this.goToTab = refFunc;
       },

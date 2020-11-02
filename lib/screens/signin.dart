@@ -73,9 +73,7 @@ class _SignInScreenState extends State<SignInScreen> {
             child: Container(
               height:_large? _height/4 : (_medium? _height/3.75 : _height/3.5),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.orange[200], Colors.pinkAccent],
-                ),
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -87,9 +85,7 @@ class _SignInScreenState extends State<SignInScreen> {
             child: Container(
               height: _large? _height/4.5 : (_medium? _height/4.25 : _height/4),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.orange[200], Colors.pinkAccent],
-                ),
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -200,7 +196,7 @@ class _SignInScreenState extends State<SignInScreen> {
             child: Text(
               "Recover",
               style: TextStyle(
-                  fontWeight: FontWeight.w600, color: Colors.orange[200]),
+                  fontWeight: FontWeight.w600, color: Theme.of(context).primaryColor),
             ),
           )
         ],
@@ -226,9 +222,7 @@ class _SignInScreenState extends State<SignInScreen> {
         width: _large? _width/4 : (_medium? _width/3.75: _width/3.5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(20.0)),
-          gradient: LinearGradient(
-            colors: <Color>[Colors.orange[200], Colors.pinkAccent],
-          ),
+          color: Theme.of(context).primaryColor,
         ),
         padding: const EdgeInsets.all(12.0),
         child: Text('SIGN IN',style: TextStyle(fontSize: _large? 14: (_medium? 12: 10))),
@@ -257,7 +251,7 @@ class _SignInScreenState extends State<SignInScreen> {
             child: Text(
               "Sign up",
               style: TextStyle(
-                  fontWeight: FontWeight.w800, color: Colors.orange[200], fontSize: _large? 19: (_medium? 17: 15)),
+                  fontWeight: FontWeight.w800, color: Theme.of(context).primaryColor, fontSize: _large? 19: (_medium? 17: 15)),
             ),
           )
         ],
